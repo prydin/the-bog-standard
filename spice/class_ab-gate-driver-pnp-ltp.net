@@ -1,0 +1,97 @@
+* C:\proj\classab-amp-mosfet\spice\class_ab-gate-driver-pnp-ltp.asc
+V3 0 B- 40
+R9 N014 FB 22k
+R7 FB 0 1k
+C4 FB FB 220µ
+R2 N015 0 22k
+C2 N015 0 68p
+R1 N015 IN 150
+C5 N021 N018 33p
+Q7 N003 N017 N021 0 BD139C
+R11 N003 N017 10k
+R12 N017 N021 865
+C3 N014 N016 100n
+R20 N016 0 10
+V4 FB NEG_IN AC 0
+V1 B+ 0 40
+C6 N003 N021 47µ
+V5 SINE 0 SINE(0 {a} {f}) AC 1
+R18 N024 N032 2k
+R23 N025 N024 2k
+C7 N024 0 159.2n
+C8 N032 N033 79.62n
+C9 N033 N025 79.62n
+R28 N033 0 1k
+L3 OUT OUT 1m
+R31 OUT 0 8
+M1 B+ N007 N009 N009 IRFP240
+M2 B- N027 N020 N020 IRFP9240
+D2 N013 N014 1N4148
+D4 N013 N006 UMZ5_1N
+D5 N022 N014 UMZ5_1N
+D9 N022 N026 1N4148
+R21 OUT N014 10
+L1 N014 OUT 3µ
+C10 B+ 0 7m
+C12 0 B- 7m
+C1 IN IN 4.7µ
+Q5 B+ N003 N006 0 BD139C
+Q9 B- N021 N026 0 BD140C
+R25 N006 N026 680
+C11 N006 N026 220n
+C13 N021 0 68p
+C14 N003 0 68p
+B1 SQR 0 v=if(time>1e-6,{a}*sgn(v(sine)),0)
+B2 IN 0 V=if({square}>0,v(sqr),v(sine))
+Q10 N021 N028 N031 0 2N5550
+Q13 0 N018 N028 0 2N5550
+R16 N031 B- 22
+R17 N028 B- 1k
+D1 FB FB 1N4148
+Q6 N003 N005 N002 0 2N5401
+R10 B+ N002 47
+Q14 N005 N002 B+ 0 2N5401
+R19 N005 0 10k
+Q8 N023 N023 N030 0 2N5550
+Q12 N018 N023 N029 0 2N5550
+R13 N029 B- 470
+R14 N030 B- 470
+Q3 N011 N004 N001 0 2N5401
+R3 B+ N001 330
+Q4 N004 N001 B+ 0 2N5401
+R4 N004 0 10k
+R24 N012 N011 100
+R26 N011 N010 100
+Q1 N023 NEG_IN N012 0 BC557B
+Q2 N018 N015 N010 0 BC557B
+R5 B+ B+ 100
+R6 B- B- 100
+Q11 N018 N031 B- 0 2N5550
+Q15 N007 N008 N014 0 2N5550
+R27 N009 N008 820
+R29 B+ N008 33k
+Q16 N027 N019 N014 0 2N5401
+R30 N020 N019 820
+R33 N019 B- 33k
+R8 N007 N006 47
+R15 N027 N026 47
+R22 N009 N014 0.1
+R32 N014 N020 0.1
+.model D D
+.lib C:\Users\pontu\AppData\Local\LTspice\lib\cmp\standard.dio
+.model NPN NPN
+.model PNP PNP
+.lib C:\Users\pontu\AppData\Local\LTspice\lib\cmp\standard.bjt
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\Users\pontu\AppData\Local\LTspice\lib\cmp\standard.mos
+.param f=1k a=0.5 square=0 sim_time=100m delay=0
+.tran 0 {sim_time+delay} {delay} 100n
+.four {f} 50 -1 v(out)
+.option plotwinsize=0 NoOpiter numdgt=15
+* .ac dec 1000 1 10000k
+* .noise out in dec 1000 1 1meg
+* Notch filter for time domain distortion test
+* f - Input frequency\na - Input amplitude\nsquare - Set to non-zero for square wave input\nsim_time - Simulation time (not counting settling delay)\ndelay - Settling delay. Set to several seconds for accurate THD
+.backanno
+.end
