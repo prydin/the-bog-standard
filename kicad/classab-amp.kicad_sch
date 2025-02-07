@@ -3119,28 +3119,22 @@
 		(uuid "59b0a820-a5c6-483f-a5a4-b5729e8afb81")
 	)
 	(junction
-		(at 91.44 66.04)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "5ab1cba6-80d9-4576-bab6-bb878f6d36cc")
-	)
-	(junction
 		(at 181.61 128.27)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5e6d7f56-8e4c-4414-8a2b-670d6689f818")
 	)
 	(junction
-		(at 33.02 80.01)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "61180605-2493-4498-bc1b-edefc546cf5e")
-	)
-	(junction
 		(at 181.61 44.45)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "66cdbd06-d4db-4b64-8fa6-bc9fd3efe339")
+	)
+	(junction
+		(at 33.02 80.01)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "66d555b9-2a6e-4567-8060-8b431d9631b7")
 	)
 	(junction
 		(at 196.85 128.27)
@@ -3782,16 +3776,6 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 67.31) (xy 99.06 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3aaeae4a-f3c6-47af-9102-4ffc3eb8bc1f")
-	)
-	(wire
-		(pts
 			(xy 128.27 50.8) (xy 128.27 48.26)
 		)
 		(stroke
@@ -4029,16 +4013,6 @@
 			(type default)
 		)
 		(uuid "51abd4e0-f4af-4287-87db-a1aff60818b1")
-	)
-	(wire
-		(pts
-			(xy 91.44 66.04) (xy 99.06 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "51ebc666-d1c3-4339-b11c-04c589ff84d8")
 	)
 	(wire
 		(pts
@@ -4452,16 +4426,6 @@
 	)
 	(wire
 		(pts
-			(xy 25.4 80.01) (xy 33.02 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7e289c81-91ab-4bdd-9ea1-d4a10259e285")
-	)
-	(wire
-		(pts
 			(xy 142.24 105.41) (xy 152.4 105.41)
 		)
 		(stroke
@@ -4479,16 +4443,6 @@
 			(type default)
 		)
 		(uuid "7eaa40a9-292e-41fc-86ec-db9d3ec7a367")
-	)
-	(wire
-		(pts
-			(xy 99.06 74.93) (xy 99.06 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7f115736-000d-40ea-b68e-9c0510f924e2")
 	)
 	(wire
 		(pts
@@ -4929,6 +4883,16 @@
 			(type default)
 		)
 		(uuid "c05b7422-a424-4783-b1d8-ed6e4251be16")
+	)
+	(wire
+		(pts
+			(xy 25.4 80.01) (xy 33.02 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c075b945-21c1-451f-8b2a-05b20282477b")
 	)
 	(wire
 		(pts
@@ -5430,17 +5394,6 @@
 		)
 		(uuid "c8e6b1c9-263c-47f6-a84f-790f42af66c6")
 	)
-	(label "LTP COM"
-		(at 91.44 66.04 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "17c5cee0-48ea-43d7-bf38-8931cae55e31")
-	)
 	(label "SPEAKER"
 		(at 223.52 77.47 0)
 		(fields_autoplaced yes)
@@ -5709,6 +5662,76 @@
 			(project "classab-amp"
 				(path "/856f1e14-388c-4d87-abe9-3c0c6310ec29"
 					(reference "Q15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Polarized")
+		(at 204.47 151.13 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "15d7eb8b-d76a-419b-8f73-a7b46d1f70b2")
+		(property "Reference" "C13"
+			(at 208.788 150.2409 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "220u"
+			(at 208.534 152.146 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_THT:CP_Radial_D8.0mm_P5.00mm"
+			(at 205.4352 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 204.47 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Polarized capacitor"
+			(at 204.47 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "88c22023-dfb8-41d3-93b6-332698e0dc67")
+		)
+		(pin "2"
+			(uuid "5ca780c0-974f-4d38-ab44-580ac8a6709e")
+		)
+		(instances
+			(project "classab-amp"
+				(path "/856f1e14-388c-4d87-abe9-3c0c6310ec29"
+					(reference "C13")
 					(unit 1)
 				)
 			)
@@ -6241,7 +6264,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "470"
+		(property "Value" "100"
 			(at 85.598 137.414 0)
 			(effects
 				(font
@@ -6444,76 +6467,6 @@
 			(project "classab-amp"
 				(path "/856f1e14-388c-4d87-abe9-3c0c6310ec29"
 					(reference "R16")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Polarized")
-		(at 204.47 151.13 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2915430c-117d-4feb-acf7-2a3af61ef0e8")
-		(property "Reference" "C13"
-			(at 208.28 150.7489 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "4700u"
-			(at 208.28 153.2889 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:CP_Radial_D18.0mm_P7.50mm"
-			(at 203.5048 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 204.47 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Polarized capacitor"
-			(at 204.47 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d9ec4189-1b24-41cc-bb5b-24ecb261a03e")
-		)
-		(pin "2"
-			(uuid "fea2153f-7dde-4482-b46d-c861e41129a9")
-		)
-		(instances
-			(project "classab-amp"
-				(path "/856f1e14-388c-4d87-abe9-3c0c6310ec29"
-					(reference "C13")
 					(unit 1)
 				)
 			)
@@ -8232,16 +8185,16 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 20.32 80.01 180)
+		(at 20.32 77.47 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "6c16ec09-20c9-48d0-aeb6-0f13a87e1e36")
 		(property "Reference" "J3"
-			(at 20.32 71.12 0)
+			(at 19.812 72.136 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8249,7 +8202,7 @@
 			)
 		)
 		(property "Value" "INPUT"
-			(at 20.32 73.66 0)
+			(at 20.066 74.422 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8257,7 +8210,7 @@
 			)
 		)
 		(property "Footprint" "TerminalBlock_4Ucon:TerminalBlock_4Ucon_1x02_P3.50mm_Horizontal"
-			(at 20.32 80.01 0)
+			(at 20.32 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8266,7 +8219,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 20.32 80.01 0)
+			(at 20.32 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8275,7 +8228,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 20.32 80.01 0)
+			(at 20.32 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8385,7 +8338,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "470"
+		(property "Value" "100"
 			(at 65.278 137.414 0)
 			(effects
 				(font
@@ -8778,44 +8731,35 @@
 		)
 	)
 	(symbol
-		(lib_id "Diode:1N4148")
-		(at 99.06 71.12 90)
-		(mirror x)
+		(lib_id "Device:C_Polarized")
+		(at 204.47 25.4 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "828be9a9-55a6-4f27-9b22-b83ba17a8576")
-		(property "Reference" "D1"
-			(at 105.918 67.818 90)
+		(fields_autoplaced yes)
+		(uuid "87b41bfc-a214-4bc7-8de8-3819163130d6")
+		(property "Reference" "C12"
+			(at 208.28 25.0189 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
-		(property "Value" "1N4148"
-			(at 108.458 70.358 90)
+		(property "Value" "220u"
+			(at 208.28 27.5589 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P5.08mm_Vertical_KathodeUp"
-			(at 99.06 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf"
-			(at 99.06 71.12 0)
+		(property "Footprint" "Capacitor_THT:CP_Radial_D8.0mm_P5.00mm"
+			(at 203.5048 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8823,8 +8767,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "100V 0.15A standard switching diode, DO-35"
-			(at 99.06 71.12 0)
+		(property "Datasheet" "~"
+			(at 204.47 25.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8832,34 +8776,25 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Device" "D"
-			(at 99.06 71.12 0)
+		(property "Description" "Polarized capacitor"
+			(at 204.47 25.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 99.06 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "94852e5e-2e44-4fd8-9bfc-8fd2a2dc4587")
 		)
 		(pin "1"
-			(uuid "6e978ea7-4aab-4cd9-a83f-ddb94abbdc60")
+			(uuid "2db5c2d9-f1ce-4a62-bd0f-1c6813b1f491")
+		)
+		(pin "2"
+			(uuid "47586913-8503-4f0a-8042-8a464d2aaedf")
 		)
 		(instances
 			(project "classab-amp"
 				(path "/856f1e14-388c-4d87-abe9-3c0c6310ec29"
-					(reference "D1")
+					(reference "C12")
 					(unit 1)
 				)
 			)
@@ -9227,7 +9162,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "470"
 			(at 83.82 36.8299 0)
 			(effects
 				(font
@@ -10328,75 +10263,6 @@
 			(project ""
 				(path "/856f1e14-388c-4d87-abe9-3c0c6310ec29"
 					(reference "J5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Polarized")
-		(at 204.47 25.4 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "b4aac1aa-c652-44bd-a980-74bdddde5ac4")
-		(property "Reference" "C14"
-			(at 208.28 25.0189 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "4700u"
-			(at 208.28 27.5589 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:CP_Radial_D18.0mm_P7.50mm"
-			(at 203.5048 21.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 204.47 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Polarized capacitor"
-			(at 204.47 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "cba1930a-00b2-49d6-87ec-bc40b9025141")
-		)
-		(pin "2"
-			(uuid "68b57801-930a-4820-b29a-d019a736b144")
-		)
-		(instances
-			(project "classab-amp"
-				(path "/856f1e14-388c-4d87-abe9-3c0c6310ec29"
-					(reference "C14")
 					(unit 1)
 				)
 			)
