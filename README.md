@@ -93,6 +93,5 @@ This work rests on the shoulders of giants. Much of the design is borrowed from 
 book "Audio Power Amplifier Design". This is a must-read for anyone interested in audio electronics!
 A heartfelt thank you also goes out to the friendly and extremely knowledgeable community at dyiaudio.com.
 If you haven't joined that site, you should! 
-Power Supply Rejection Ratio (PSRR), so I went with an unregulated design.
 
 
