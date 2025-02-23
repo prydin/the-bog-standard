@@ -79,11 +79,13 @@ gear. The actual THD is expected to be better when measured properly.
 * Calculated phase margin: 89 degrees
 
 ## Schematic
+Click image to enlarge!
+
 ![Schematic](images/schematic.png)
 
 ## Gerber files
-Amplifier: [kicad/gerber](kicad/gerber)
-Power supply: [kicad/power_supply/gerber](kicad/power_supply/gerber)
+* Amplifier: [kicad/gerber](kicad/gerber)
+* Power supply: [kicad/power_supply/gerber](kicad/power_supply/gerber)
 
 
 ## Acknowledgements and credits
