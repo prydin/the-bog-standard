@@ -64,8 +64,8 @@ The very simple unregulated power supply that's part of this repository seems to
 along the principle of simplicity rather than sophistication. The amplifier itself should have a decent Power
 Supply Rejection Ratio (PSRR).
 
-All grounds (power, earth and signal) are joined at the DC side of the power supply and the PCB offers
-connectors for tying the grounds together.
+All grounds (signal, earth and power) meet at the DC side of the power supply and the PCB layout provides
+connectors for tying the grounds together. In preliminary tests, there was no audible hum or noise. 
 
 ## Acknowledgements and credits
 This work rests on the shoulders of giants. Much of the design is borrowed from Douglas Self's legendary
@@ -74,5 +74,4 @@ A heartfelt thank you also goes out to the friendly and extremely knowledgeable 
 If you haven't joined that site, you should! 
 Power Supply Rejection Ratio (PSRR), so I went with an unregulated design.
 
-All grounds (signal, earth and power) meet at the DC side of the power supply and the PCB layout provides
-connectors for tying the grounds together. In preliminary tests, there was no audible hum or noise. 
+
