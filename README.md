@@ -1,6 +1,13 @@
 # The Bog Standard
 A common sense 50W amplifier for the common (wo)man.
 
+## Project status (Read this first!)
+This project is still work in progress. After thorough simulations, a first prototype has been build
+and performs very well in preliminary tests. That said, it is an early prototype and there might still
+be some bugs to work out.
+
+You are welcome to use this design and build it. Just be aware that it's subject to change.
+
 ## Background
 The idea of this amplifier came from me seeing beginners struggling with amplifier designs 
 that were either pure junk, too complicated, required exotic and obsolete components or all of the above.
@@ -55,6 +62,12 @@ coefficient, so you should expect the quiescent current to be higher on a cold a
 ## Power supply and grounding
 The very simple unregulated power supply that's part of this repository seems to work well and is desined
 along the principle of simplicity rather than sophistication. The amplifier itself should have a decent
+
+## Acknowledgements and credits
+This work rests on the shoulders of giants. Much of the design is borrowed from Douglas Self's legendary
+book "Audio Power Amplifier Design". This is a must-read for anyone interested in audio electronics!
+A heartfelt thank you also goes out to the friendly and extremely knowledgeable community at dyiaudio.com.
+If you haven't joined that site, you should! 
 Power Supply Rejection Ratio (PSRR), so I went with an unregulated design.
 
 All grounds (signal, earth and power) meet at the DC side of the power supply and the PCB layout provides
