@@ -61,7 +61,11 @@ coefficient, so you should expect the quiescent current to be higher on a cold a
 
 ## Power supply and grounding
 The very simple unregulated power supply that's part of this repository seems to work well and is desined
-along the principle of simplicity rather than sophistication. The amplifier itself should have a decent
+along the principle of simplicity rather than sophistication. The amplifier itself should have a decent Power
+Supply Rejection Ratio (PSRR).
+
+All grounds (power, earth and signal) are joined at the DC side of the power supply and the PCB offers
+connectors for tying the grounds together.
 
 ## Acknowledgements and credits
 This work rests on the shoulders of giants. Much of the design is borrowed from Douglas Self's legendary
