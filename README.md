@@ -1,5 +1,4 @@
-# The Bog Standard
-A common sense 50W amplifier for the common (wo)man.
+# The Bog Standard - A common sense 50W amplifier for the common (wo)man.
 
 ![3D rendering](images/3d.png)
 
