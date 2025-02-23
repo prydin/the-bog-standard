@@ -1,6 +1,8 @@
 # The Bog Standard
 A common sense 50W amplifier for the common (wo)man.
 
+![3D rendering](images/3d.png)
+
 ## Project status (Read this first!)
 This project is still work in progress. After thorough simulations, a first prototype has been build
 and performs very well in preliminary tests. That said, it is an early prototype and there might still
@@ -66,6 +68,24 @@ Supply Rejection Ratio (PSRR).
 
 All grounds (signal, earth and power) meet at the DC side of the power supply and the PCB layout provides
 connectors for tying the grounds together. In preliminary tests, there was no audible hum or noise. 
+
+## Preliminary performance metrics
+
+These metrics are from bench tests without a case and proper routing and using very basic test
+gear. The actual THD is expected to be better when measured properly.
+
+* THD @ 1W/1kHz: <0.008%
+* Bandwidth (3dB): 20Hz - 900kHz
+* Slew rate: >20V/us
+* Calculated phase margin: 89 degrees
+
+## Schematic
+![Schematic](images/schematic.png)
+
+## Gerber files
+Amplifier: [kicad/gerber](kicad/gerber)
+Power supply: [kicad/power_supply/gerber](kicad/power_supply/gerber)
+
 
 ## Acknowledgements and credits
 This work rests on the shoulders of giants. Much of the design is borrowed from Douglas Self's legendary
