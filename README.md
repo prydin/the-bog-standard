@@ -12,7 +12,7 @@ You are welcome to use this design and build it. Just be aware that it's subject
 ## Background
 The idea of this amplifier came from me seeing beginners struggling with amplifier designs 
 that were either pure junk, too complicated, required exotic and obsolete components or all of the above.
-This sparked a very interesting conversation on dyiaudio.com where I presented a previous design
+This sparked a very interesting conversation on diyaudio.com where I presented a previous design
 as a candidate. Over the next few weeks, that design got thoroughly critiqued and reworked several times.
 As the keen reader will see, the design eventually gravitated towards an architecture that closely
 resembles Douglas Self's famous "Blameless Amplifier" concept, albeit using MOSFET output devices rather
@@ -91,8 +91,7 @@ Click image to enlarge!
 ## Acknowledgements and credits
 This work rests on the shoulders of giants. Much of the design is borrowed from Douglas Self's legendary
 book "Audio Power Amplifier Design". This is a must-read for anyone interested in audio electronics!
-A heartfelt thank you also goes out to the friendly and extremely knowledgeable community at dyiaudio.com.
+A heartfelt thank you also goes out to the friendly and extremely knowledgeable community at diyaudio.com.
 If you haven't joined that site, you should! 
-Power Supply Rejection Ratio (PSRR), so I went with an unregulated design.
 
 
