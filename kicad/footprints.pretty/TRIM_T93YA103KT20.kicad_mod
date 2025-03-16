@@ -1,0 +1,172 @@
+(footprint "TRIM_T93YA103KT20"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "RV1"
+		(at 0.032 -6.35 180)
+		(layer "F.SilkS")
+		(uuid "72b1e904-eb3f-4fcc-82f9-3e74ee5e6da9")
+		(effects
+			(font
+				(size 1.004969 1.004969)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "300"
+		(at 4.18597 -8.27891 180)
+		(layer "F.Fab")
+		(uuid "095de4a7-c1ef-49ff-9696-6ec67770c253")
+		(effects
+			(font
+				(size 1.002898 1.002898)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "92eaaa17-931e-431c-9715-67fdce7fdef9")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "Trim-potentiometer"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "73b30d3c-8cf4-4931-beb5-2990bcb1792a")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_line
+		(start -2.5 -4.85)
+		(end 2.5 -4.85)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "c8ebb6f2-ff5e-4e68-b595-44ee5418e10a")
+	)
+	(fp_line
+		(start -2.5 4.85)
+		(end -2.5 -4.85)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "f48c1fe4-2bc9-4145-aa8e-42894f684236")
+	)
+	(fp_line
+		(start 2.5 -4.85)
+		(end 2.5 4.85)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "fe02e838-06fd-461e-9c12-ac5730c52da9")
+	)
+	(fp_line
+		(start 2.5 4.85)
+		(end -2.5 4.85)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "cadf4976-90fe-4423-bb8a-a9ff3d471490")
+	)
+	(fp_line
+		(start -3 -5.5)
+		(end -3 5.5)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "1cd7a515-956f-401e-8cf2-f06632a73f07")
+	)
+	(fp_line
+		(start -3 5.5)
+		(end 3 5.5)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "eb79539c-9d66-462b-baff-ea8ca9af3cc7")
+	)
+	(fp_line
+		(start 3 -5.5)
+		(end -3 -5.5)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "c7bb745d-f8a8-45e0-bb9c-3fa2a83e0b45")
+	)
+	(fp_line
+		(start 3 5.5)
+		(end 3 -5.5)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "4b97e66d-bfac-4725-a0c4-b8edd9bb3b5f")
+	)
+	(pad "1" thru_hole circle
+		(at 0 -2.54)
+		(size 1.308 1.308)
+		(drill 0.8)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.102)
+		(uuid "ade5a134-78eb-41d3-8f09-4d5557a5b399")
+	)
+	(pad "2" thru_hole circle
+		(at 0 0)
+		(size 1.308 1.308)
+		(drill 0.8)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.102)
+		(uuid "899b3584-675e-45e1-b7f2-3bc3f1cc70a7")
+	)
+	(pad "3" thru_hole circle
+		(at 0 2.54)
+		(size 1.308 1.308)
+		(drill 0.8)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.102)
+		(uuid "f0685db8-cfdd-4b18-9581-46bab5014655")
+	)
+	(embedded_fonts no)
+	(model "C:/Users/pontu/OneDrive/Documents/KiCad/8.0/footprints/footprints.pretty/T93YA103KT20.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz -90 0 0)
+		)
+	)
+)
