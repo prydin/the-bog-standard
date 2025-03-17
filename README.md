@@ -68,7 +68,8 @@ connectors for tying the grounds together. In preliminary tests, there was no au
 ## Transformer
 I recommend a 160VA/2x25V toroidial transformer. The actual secondary voltage will vary depending on your mains
 voltage, but where I live I get about 35V DC on each rail after rectification. This results in clipping at about
-65W in my case. 
+95W in my case, so there's plenty of headroom for the rated 50W. I don't think it would survive sustained 95W power,
+at least not without a much larger heatsink than what I have. 
 
 ## Case and hardware
 The PCBs are compact, so you have a lot of freedom in terms of your physical build. I went for a compact
