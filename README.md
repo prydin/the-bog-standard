@@ -2,13 +2,6 @@
 
 ![3D rendering](images/3d.png)
 
-## Project status (Read this first!)
-This project is still work in progress. After thorough simulations, a first prototype has been build
-and performs very well in preliminary tests. That said, it is an early prototype and there might still
-be some bugs to work out.
-
-You are welcome to use this design and build it. Just be aware that it's subject to change.
-
 ## Background
 The idea of this amplifier came from me seeing beginners struggling with amplifier designs 
 that were either pure junk, too complicated, required exotic and obsolete components or all of the above.
@@ -47,9 +40,7 @@ the VAS runs on about 13mA. Q15 offers some basic SOA protection of the VAS.
 
 The quiescent current is regulated using a standard VBE multiplier controlled by a simple voltage divider.
 The design calls for the VBE transistor to be thermally connected to the output devices, by means of 
-mounting them on the same heat sink. This gives the amplifier a negative temperature coefficient. At this 
-point in the design process, I'm still fine tuning the value of the temperature coefficient, as I think
-it's a bit too negative.
+mounting them on the same heat sink. This gives the amplifier a negative temperature coefficient. 
 
 ## Quiescent current setting
 I am tentatively running the amplifier on 100mA of quiescent current. This results in an overall power draw
@@ -65,28 +56,50 @@ The very simple unregulated power supply that's part of this repository seems to
 along the principle of simplicity rather than sophistication. The amplifier itself should have a decent Power
 Supply Rejection Ratio (PSRR).
 
-All grounds (signal, earth and power) meet at the DC side of the power supply and the PCB layout provides
+In my build, all grounds (signal, earth and power) meet at the DC side of the power supply and the PCB layout provides
 connectors for tying the grounds together. In preliminary tests, there was no audible hum or noise. 
 
+## Transformer
+I recommend a 160VA/2x25V toroidial transformer. The actual secondary voltage will vary depending on your mains
+voltage, but where I live I get about 35V DC on each rail after rectification. This results in clipping at about
+65W in my case. 
+
+## Case and hardware
+The PCBs are compact, so you have a lot of freedom in terms of your physical build. I went for a compact
+case from NobSound. It made wire routing a bit challenging and I had to make some compromises. However, the
+build came out great without any audible hum or noise. 
+
+### Heat sinks
+I'm using a pair of 100 x 40 x 20mm finned heatsinks I found on Amazon. They work well up to about 40W but
+get very hot at 50W and above. If your case allows it, I would recommend slightly larger sinks. This is one 
+of those situations where bigger really IS better!
+![Heatsink](images/heatsink.png)
+
 ## Preliminary performance metrics
-
-These metrics are from bench tests without a case and proper routing and using very basic test
-gear. The actual THD is expected to be better when measured properly.
-
-* THD @ 1W/1kHz: <0.008%
+* THD @ 1W/1kHz: <0.005%
 * Bandwidth (3dB): 20Hz - 900kHz
-* Slew rate: >20V/us
+* Slew rate: 27V/us
 * Calculated phase margin: 89 degrees
 
 ## Schematic
 Click image to enlarge!
 
-![Schematic](images/schematic.png)
+![Schematic](images/schematic.jpg)
 
 ## Gerber files
 * Amplifier: [kicad/gerber](kicad/gerber)
 * Power supply: [kicad/power_supply/gerber](kicad/power_supply/gerber)
 
+## Image gallery
+![Front](images/front.png)
+![Front](images/interior.png)
+
+## About me
+I was born in Sweden but live in the US since many years. A software engineer by trade, but I grew up in a home 
+full of electronics and test equipment. My father was a very accomplished designer or RF amplifiers for cell towers, so amplifiers 
+run in my blood. We had countless conversations over the dinner table about amplifier design. Unfortunately, 
+he's no longer with us, but I know he would have loved to follow this project and probably had been very 
+opionionated about my design choices...
 
 ## Acknowledgements and credits
 This work rests on the shoulders of giants. Much of the design is borrowed from Douglas Self's legendary
