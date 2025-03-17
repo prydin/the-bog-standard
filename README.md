@@ -84,7 +84,7 @@ of those situations where bigger really IS better!
 ## Schematic
 Click image to enlarge!
 
-![Schematic](images/schematic.jpg)
+![Schematic](images/schematic.png)
 
 ## Gerber files
 * Amplifier: [kicad/gerber](kicad/gerber)
