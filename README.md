@@ -101,6 +101,11 @@ Click image to enlarge!
 ![Front](images/front.jpg)
 ![Front](images/interior.jpg)
 
+## Contributing
+If you find any errors in the design, or if you have ideas how it can be improved, please create an issue report in Github (top menu).
+Or even better, clone the repo and issue a PR with your changes and I will consider updating the design using your
+modifications.
+
 ## About me
 I was born in Sweden but live in the US since many years. A software engineer by trade, but I grew up in a home 
 full of electronics and test equipment. My father was a very accomplished designer of RF amplifiers for cell towers, so amplifiers 
