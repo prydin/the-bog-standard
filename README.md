@@ -51,6 +51,12 @@ It is very important to let the amplifier warm up before fine tuning the bias. W
 mounted close to the drivers and outputs, the bias current will have a pronounced negative temperature 
 coefficient, so you should expect the quiescent current to be higher on a cold amplifier and then settle.
 
+## Volume control
+It's crucial to fit the volume control after the input lowpass filter in order to avoid a frequency response
+that varies with the volume. To facilitate this, the PCB comes with a connector for a volume potentiometer. 
+I've used 50k pots with good results. If you don't need a volume control at the power amplifier, i.e.
+if the amplifier is driven by a preamp, just short pins 2 and 3 on the volume control connector.
+
 ## Power supply and grounding
 The very simple unregulated power supply that's part of this repository seems to work well and is desined
 along the principle of simplicity rather than sophistication. The amplifier itself should have a decent Power
@@ -96,7 +102,7 @@ Click image to enlarge!
 
 ## About me
 I was born in Sweden but live in the US since many years. A software engineer by trade, but I grew up in a home 
-full of electronics and test equipment. My father was a very accomplished designer or RF amplifiers for cell towers, so amplifiers 
+full of electronics and test equipment. My father was a very accomplished designer of RF amplifiers for cell towers, so amplifiers 
 run in my blood. We had countless conversations over the dinner table about amplifier design. Unfortunately, 
 he's no longer with us, but I know he would have loved to follow this project and probably had been very 
 opionionated about my design choices...
