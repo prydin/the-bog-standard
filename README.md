@@ -73,7 +73,7 @@ build came out great without any audible hum or noise.
 I'm using a pair of 100 x 40 x 20mm finned heatsinks I found on Amazon. They work well up to about 40W but
 get very hot at 50W and above. If your case allows it, I would recommend slightly larger sinks. This is one 
 of those situations where bigger really IS better!
-![Heatsink](images/heatsink.png)
+![Heatsink](images/heatsink.jpg)
 
 ## Preliminary performance metrics
 * THD @ 1W/1kHz: <0.005%
