@@ -25,7 +25,7 @@ some people suggested rare and expensive lateral MOSFETs, in the spirit of the p
 good old IRFP(9)240. Based on measurements and listening tests, they perform very well in this setup.
 
 The rest of the transistors are, well, bog standard: 2N5551/2N5401 for low power and BD139/140 for 
-medium power. That's it. The rest are just passvives and basic diodes.
+medium power. That's it. The rest are just passives and basic diodes.
 
 ## Design highlights
 As mentioned above, the design follows Doug Self's Blameless Amplifier relatively closely. I went with 
@@ -91,8 +91,8 @@ Click image to enlarge!
 * Power supply: [kicad/power_supply/gerber](kicad/power_supply/gerber)
 
 ## Image gallery
-![Front](images/front.png)
-![Front](images/interior.png)
+![Front](images/front.jpg)
+![Front](images/interior.jpg)
 
 ## About me
 I was born in Sweden but live in the US since many years. A software engineer by trade, but I grew up in a home 
