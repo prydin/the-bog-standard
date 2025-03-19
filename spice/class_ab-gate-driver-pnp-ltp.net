@@ -1,74 +1,89 @@
 * C:\proj\the-bog-standard\spice\class_ab-gate-driver-pnp-ltp.asc
 V3 0 B- 40
-R9 OUT FB 22k
-R7 FB 0 1k
-C4 FB FB 220µ
-R2 N013 0 22k
-C2 N013 0 68p
-R1 N013 IN 150
-C5 N021 N020 33p
-Q7 N003 N017 N021 0 BD139C
-R11 N003 N017 10k
-R12 N017 N021 865
-C3 OUT N016 100n
-R20 N016 0 10
-V4 FB NEG_IN AC 0
+R14 OUT FB 22k
+R12 FB N024 1k
+C4 N024 0 1; 220µ
+R4 N016 0 22k
+C1 N018 0 220p
+R1 N018 IN 1k
+C6 N025 N027 47p
+Q11 N004 N023 N025 0 BD139C
+R17 N004 N023 10k
+R18 N023 N025 865
+C15 OUT N020 100n
+R§E24 N020 0 10
 V1 B+ 0 40
-C6 N003 N021 10µ
+C7 N004 N025 10µ
 V5 SINE 0 SINE(0 {a} {f}) AC 1
-R18 N014 N018 2k
-R23 N015 N014 2k
-C7 N014 0 159.2n
-C8 N018 N019 79.62n
-C9 N019 N015 79.62n
-R28 N019 0 1k
-L3 OUT OUT 1m
-R31 OUT 0 8
-M1 B+ N007 N011 N011 IRFP240
-M2 B- N026 N024 N024 IRFP9240
-R8 N007 N006 47
-R32 N026 N025 47
-D2 N012 OUT 1N4148
-D4 N012 N006 UFZV8_2B
-D5 N022 OUT UFZV8_2B
-D9 N022 N025 1N4148
-C10 B+ 0 7m
-C12 0 B- 7m
-C1 IN IN 4.7µ
-Q5 B+ N003 N006 0 BD139C
-Q9 B- N021 N025 0 BD140C
-R25 N006 N025 680
-C11 N006 N025 10µ
-C13 N021 0 68p
-C14 N003 0 68p
+R218 N031 N034 2k
+R223 N032 N031 2k
+C207 N031 0 159.2n
+C208 N034 N038 79.62n
+C209 N038 N032 79.62n
+R228 N038 0 1k
+M§Q15 B+ N008 OUT OUT IRFP240
+M§Q16 B- N030 OUT OUT IRFP9240
+R22 N008 N007 68
+R23 N030 N029 68
+D5 N014 OUT 1N4148
+D4 N014 N008 UMZ5_1N
+D6 N026 OUT UMZ5_1N
+D7 N026 N030 1N4148
+C310 B+ 0 7m
+C312 0 B- 7m
+C3 N016 N015 1; 4.7µ
+Q13 B+ N004 N007 0 BD139C
+Q14 B- N025 N029 0 BD140C
+R21 N007 N029 680
+C10 N007 N029 220n
+C9 N025 0 47p
+C8 N004 0 47p
 B1 SQR 0 v=if(time>1e-6,{a}*sgn(v(sine)),0)
 B2 IN 0 V=if({square}>0,v(sqr),v(sine))
-Q10 N021 N027 N030 0 BD139C
-Q13 0 N020 N027 0 2N5550
-R16 N030 B- 22
-R17 N027 B- 1k
-D1 FB FB 1N4148
-Q6 N003 N005 N002 0 BD140C
-R10 B+ N002 47
-Q14 N005 N002 B+ 0 2N5401
-R19 N005 0 10k
-Q8 N023 N023 N029 0 2N5550
-Q12 N020 N023 N028 0 2N5550
-R13 N028 B- 100
-R14 N029 B- 100
-Q3 N009 N004 N001 0 2N5401
-R3 B+ N001 470
-Q4 N004 N001 B+ 0 2N5401
-R4 N004 0 10k
-R24 N010 N009 100
-R26 N009 N008 100
-Q1 N023 NEG_IN N010 0 2N5401
-Q2 N020 N013 N008 0 2N5401
-Q11 N020 N030 B- 0 2N5550
-R15 N011 OUT 0.33
-R22 OUT N024 0.33
-D3 N013 NEG_IN 1N4148
-D6 NEG_IN N013 1N4148
+Q12 N025 N033 N037 0 BD139C
+Q8 0 N027 N033 0 2N5550
+R20 N037 B- 33
+R13 N033 B- 1k
+D3 0 N024 1N4148
+Q10 N004 N006 N003 0 BD140C
+R19 B+ N003 47
+Q9 N006 N003 B+ 0 2N5401
+R15 N006 N013 4.7k
+Q5 N028 N028 N036 0 2N5550
+Q3 N027 N028 N035 0 2N5550
+R7 N035 B- 100
+R11 N036 B- 100
+Q4 N011 N005 N002 0 2N5401
+R9 B+ N002 470
+Q1 N005 N002 B+ 0 2N5401
+R5 N005 N009 4.7k
+R10 N012 N011 100
+R8 N011 N010 100
+Q6 N028 NEG_IN N012 0 2N5401
+Q2 N027 N016 N010 0 2N5401
+R405 N016 N015 {dc_couple_res}
+R406 0 N024 {dc_couple_res}
+R115 NC_01 N021 6.8
+L3 N021 N022 1m
+C115 N022 0 500µ
+L104 N022 0 20m
+R122 N022 0 22
+V2 FB NEG_IN AC 0
+Q7 N027 N037 B- 0 2N5550
+R6 N009 0 4.7k
+R16 N013 0 4.7k
+R30 OUT 0 8
+C2 B+ N009 4.7µ
+C5 B+ N013 4.7µ
+D1 NEG_IN N016 1N4148
+D2 N016 NEG_IN 1N4148
+C318 N001 0 200µ
+C319 0 N017 200µ
+R329 N001 B+ 1
+R331 N017 B- 1
+R33 N019 N018 {r_vol_hi}
+R404 N019 0 {r_vol_lo}
+R3 N019 N015 470
 .model D D
 .lib C:\Users\pontu\AppData\Local\LTspice\lib\cmp\standard.dio
 .model NPN NPN
@@ -77,13 +92,16 @@ D6 NEG_IN N013 1N4148
 .model NMOS NMOS
 .model PMOS PMOS
 .lib C:\Users\pontu\AppData\Local\LTspice\lib\cmp\standard.mos
-.param f=1k a=0.5 square=1 sim_time=100m delay=100m
+.param f=1k a=0.8 square=0 sim_time=100m delay=0 dc_coupled=0 r_pot=50k vol=1
+.param dc_couple_res=if({dc_coupled}>0,1p,10G)
+.param r_vol_hi=1m+(1-vol)*r_pot r_vol_lo=1m+vol*r_pot
 .tran 0 {sim_time+delay} {delay} 100n
 .four {f} 50 -1 v(out)
 .option plotwinsize=0 NoOpiter numdgt=15
-* .ac dec 1000 1 10000k
+; .step param vol list  0.25 0.5 0.75 1
+* .ac dec 1000 1 10meg
 * .noise out in dec 1000 1 1meg
 * Notch filter for time domain distortion test
-* f - Input frequency\na - Input amplitude\nsquare - Set to non-zero for square wave input\nsim_time - Simulation time (not counting settling delay)\ndelay - Settling delay. Set to several seconds for accurate THD
+* f - Input frequency\na - Input amplitude\nvol - Volume\nsquare - Set to non-zero for square wave input\nsim_time - Simulation time (not counting settling delay)\ndelay - Settling delay. Set to several seconds for accurate THD\ndc_coupled = Shorts high value capacitors to allow for quick THD checks
 .backanno
 .end
