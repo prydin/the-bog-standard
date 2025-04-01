@@ -11,6 +11,8 @@ As the keen reader will see, the design eventually gravitated towards an archite
 resembles Douglas Self's famous "Blameless Amplifier" concept, albeit using MOSFET output devices rather
 than BJTs. 
 
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/prydin)
+
 ## Design goals
 I had a few overall requirements of the design:
 1. Respectable HiFi-grade performance
