@@ -1,0 +1,530 @@
+* Models tweaked by Cabirio@diyaudio
+* See thread "Tweaked BJT LTSpice models" for details
+*
+* Rev. B - 14-Mar-25
+* ------------------
+* EG corrected (to set temperature dependence of Vbe) in the following models:
+*
+* - 2SC3788: according to Ic-Vbe plots in datasheet
+*
+* - KSC3503 / KSA1381: according to Ic-Vbe plots in Sanyo 2SC3503-2SA1381
+*   datasheet
+*
+* - KSA1142, MJE340 / MJE350: no Ic-Vbe plots for different temperatures
+*   available, so EG set to default 1.11 value, as values significantly
+*   < 1 result in suspect Vbe temperature dependence.
+*
+* SMALL SIGNAL
+* ------------
+*   NPN   /   PNP	- Based on
+* -------------------------------------------------------
+* 2N5088		- Cordell 2N5089
+* 2SC1775 / 2SA872	- LTWiki
+* 2SC1815		- KSC1815
+* 2SA1016		- KSA992
+* 2SC2240 / 2SA970	- diyaudio
+* 2SC2291		- 2SC2240
+* BC183C		- Zetex
+* BC183L		- Zetex
+* BC547   / BC557	- LTSpice
+* KSC945C / KSA733	- LTWiki 2SC945 / 2SA733
+* KSC1845 / KSA992	- Fairchild (NQ: no quasi-sat.)
+* LM394			- National
+* MPS8099 / MPS8599	- diyaudio / Central Semi
+* MPSA06  / MPSA56	- Central Semi
+* MPSA18		- LTWiki / Motorola
+* MPSA42  / MPSA92	- Infineon (Siemens)
+* ZTX384  / ZTX214	- LTWiki BC384 / BC214
+* ZTX653  / ZTX753	- Zetex
+*
+* VAS - DRIVER
+* ------------
+*   NPN   /   PNP	- Based on
+* -------------------------------------------------------
+* 2SC1941		- KSC3503
+* 2SC2910		- KSC3503
+* 2SC3116 / 2SA1248	- KSC3503 / KSA1381
+* 2SC3788		- KSC3503
+* 2SD600  / 2SB631	- KSC2690 / KSA1220    
+* BD139   / BD140	- Cordell (BD139S / BD140S: STM)
+*         / KSA1142	- On-Semi
+* KSC2690 / KSA1220	- Fairchild
+* KSC3503 / KSA1381	- Cordell 2SC3503 / 2SA1381
+* MJE243  / MJE253	- Cordell
+* MJE340  / MJE350	- Cordell
+* TTC004B / TTA004B	- Toshiba
+
+* Small signal ---------------------------------------------------------------
+
+.model 2N5088 NPN (
++IS  = 4.97f	NF  = 0.92	BF  = 440	VAF = 130
++ISE = 2f	NE  = 1.42	IKF = 0.5
++RC  = 1.6	RE  = 0.1	RB  = 240	RBM = 2.4	IRB = 8.2u
++ISC = 5p	NR  = 0.92	BR  = 11.7	VAR = 17	NC  = 1.5
++CJC = 4.9p	VJC = 0.75	MJC = 0.4	TF  = 813p	VTF = 4.0
++CJE = 12.5p	VJE = 1.5	MJE = 0.55
++RCO = 14	VO  = 0.7	GAMMA = 180n	QCO = 500fp	QUASIMOD = 1
++EG  = 1.1	TR  = 500n	XTB = 1.5	)
+
+.model 2SC1775 NPN (
++IS  = 28.22f	NF  = 1.01	BF  = 645	VAF = 120
++ISE = 1f	NE  = 1.24	IKF = 0.4	NK  = 1.5
++RC  = 0.0	RE  = 0.0	RB  = 70	RBM = 7.0	IRB = 98.5u
++ISC = 230p	NR  = 1.01	BR  = 3.25	VAR = 35	NC  = 2.0
++CJC = 3.65p	VJC = 0.3	MJC = 0.19	TF  = 250p	VTF = 10
++CJE = 13.5p	VJE = 0.75	MJE = 0.33	ITF = 25	XTF = 950k
++RCO = 320	VO  = 7.0	GAMMA = 4.5u	QCO = 1p	QUASIMOD = 1
++TR  = 10n	XTB = 2.0	)
+
+.model 2SA872 PNP (
++IS  = 4.5f	NF  = 0.95	BF  = 505	VAF = 50
++ISE = 150f	NE  = 2.0	IKF = 15m	NK  = 0.35
++RC  = 10m	RE  = 0.1m	RB  = 80	RBM = 8.0	IRB = 95.5u
++ISC = 350p	NR  = 0.95	BR  = 1.33	VAR = 30	NC  = 2.0
++CJC = 5.9p	VJC = 0.3	MJC = 0.29	TF  = 1.15n	VTF = 10
++CJE = 16p	VJE = 0.75	MJE = 0.33	ITF = 50m	XTF = 5
++RCO = 140	VO  = 3.0	GAMMA = 800n	QCO = 1p	QUASIMOD = 1
++TR  = 10n	XTB = 1.48	XTI = 2.5	)
+
+.model 2SC1815 NPN (
++IS  = 5.3f	NF  = 0.95	BF  = 368	VAF = 140
++ISE = 2f	NE  = 1.5	IKF = 0.7	NK  = 0.85
++RC  = 3.5	RE  = 0.38	RB  = 45	RBM = 4.5	IRB = 94u
++ISC = 6.5p	NR  = 0.95	BR  = 10.4	VAR = 17	NC  = 1.5
++CJC = 6.8p	VJC = 0.41	MJC = 0.37	TF  = 220p	VTF = 10
++CJE = 11.9p	VJE = 0.5	MJE = 0.5
++RCO = 30	VO  = 10	GAMMA = 280n	QCO = 2p	QUASIMOD = 1
++EG  = 1.197	XTB = 1.674	)
+
+.model 2SA1016 PNP (
++IS  = 5.42f	NF  = 0.95	BF  = 394	VAF = 60
++ISE = 3f	NE  = 1.5	IKF = 75m
++RC  = 48m	RE  = 4.4m	RB  = 70	RBM = 7.0	IRB = 199u
++ISC = 10f	NR  = 0.95	BR  = 1.17	VAR = 25	IKR = 30m
++CJC = 6.5p	VJC = 0.25	MJC = 0.28	TF  = 100p	VTF = 10
++CJE = 16p	VJE = 0.5	MJE = 0.5
++RCO = 130	VO  = 8.0	GAMMA = 300n	QCO = 250f	QUASIMOD = 1
++EG  = 1.16	TR  = 10n	XTB = 1.285	)
+
+.model 2SC2240 NPN (
++IS  = 64.5f	NF  = 1.0	BF  = 339	VAF = 200
++ISE = 7f	NE  = 1.5
++RC  = 0.2032	RE  = 0.0	RB  = 40	RBM = 4.0	IRB = 111u
++ISC = 44p	NR  = 1.0	BR  = 34	VAR = 20	NC  = 1.5
++CJC = 7.3p	VJC = 0.5	MJC = 0.26	TF  = 450p	VTF = 10
++CJE = 13.2p	VJE = 0.5	MJE = 0.5
++RCO = 50	VO  = 2.0	GAMMA = 7u	QCO = 10p	QUASIMOD = 1
++TR  = 10n	XTB = 0.8	)
+
+.model 2SA970 PNP (
++IS  = 67.5f	NF  = 1.0	BF  = 277	VAF = 90
++ISE = 400f	NE  = 2.051	IKF = 0.7
++RC  = 2.343	RE  = 0.0	RB  = 25	RBM = 2.5	IRB = 2.61m
++ISC = 8.1p	NR  = 1.0	BR  = 4.0	VAR = 20	NC  = 1.3
++CJC = 11.2p	VJC = 1.155	MJC = 0.4014	TF  = 350p	VTF = 4.0
++CJE = 18.5p	VJE = 0.5	MJE = 0.2
++RCO = 65	VO  = 5.5	GAMMA = 2.2u	QCO = 1p	QUASIMOD = 1
++TR  = 10n	XTB = 1.5	)
+
+.model 2SC2291 NPN (
++IS  = 81.6f	NF  = 1.0	BF  = 530	VAF = 100
++ISE = 340f	NE  = 1.5
++RC  = 0.2032	RE  = 0.0	RB  = 40	RBM = 4.0	IRB = 163u
++ISC = 2.35p	NR  = 1.0	BR  = 16	VAR = 35	NC  = 1.3
++CJC = 7.3p	VJC = 0.5	MJC = 0.26	TF  = 450p	VTF = 10
++CJE = 13.2p	VJE = 0.5	MJE = 0.5
++RCO = 45	VO  = 2.0	GAMMA = 1u	QCO = 10p	QUASIMOD = 1
++TR  = 10n	XTB = 0.8	)
+
+.model BC183C NPN (
++IS  = 5.04f	NF  = 0.9	BF  = 625	VAF = 75
++ISE = 4f	NE  = 1.46	IKF = 0.38
++RC  = 0.25	RE  = 0.6	RB  = 170	RBM = 1.7	IRB = 38.2u
++ISC = 120f	NR  = 0.9	BR  = 26.3	VAR = 10	NC  = 1.3
++CJC = 3.8p	VJC = 1.5	MJC = 0.38	TF  = 535p
++CJE = 22.2p	VJE = 0.75	MJE = 0.38	ITF = 90m	XTF = 3.2
++TR  = 50.72n	XTB = 1.5	)
+
+.model BC183L ako:BC183C (
++IS  = 6.73f	BF  = 736	VAF = 63	IKF = 0.42	IRB = 46.4u )
+
+.model BC547 NPN (
++IS  = 5.38f	NF  = 0.95	BF  = 300	VAF = 100
++ISE = 34f	NE  = 1.541	IKF = 1.0	IKR = 22m
++RC  = 0.85	RE  = 0.4683	RB  = 170	RBM = 1.7	IRB = 32.5u
++ISC = 85f	NR  = 0.95	BR  = 7.8	VAR = 25.9	NC  = 1.243
++CJC = 8.1p	VJC = 0.25	MJC = 0.35	TF  = 343p	VTF = 2.643
++CJE = 12.6p	VJE = 0.65	MJE = 0.328	ITF = 0.2	XTF = 6.0	
++FC  = 0.9579	TR  = 10n	XTB = 1.5	)	
+
+.model BC557 PNP (
++IS  = 1.75f	NF  = 0.9	BF  = 212	VAF = 50
++ISE = 150f	NE  = 1.528	IKF = 0.3	IKR = 23m
++RC  = 0.5713	RE  = 0.6202	RB  = 120	RBM = 1.2	IRB = 36.7u
++ISC = 1p	NR  = 0.9	BR  = 4.1	VAR = 15	NC  = 1.5
++CJC = 11.8p	VJC = 0.25	MJC = 0.36	TF  = 476p	VTF = 5.23
++CJE = 18.5p	VJE = 0.611	MJE = 0.378	ITF = 70m	XTF = 2.1	
++FC  = 0.8027	TR  = 10n	XTB = 1.5	)
+
+.model KSC945C NPN (
++IS  = 30.4f	NF  = 1.01	BF  = 297	VAF = 130
++ISE = 0.6f	NE  = 1.205	IKF = 1.2
++RC  = 1.557	RE  = 0.8338	RB  = 40	RBM = 4.0	IRB = 22.5u
++ISC = 210f	NR  = 1.01	BR  = 32.4	VAR = 20	NC  = 1.2
++CJC = 6p	VJC = 0.365	MJC = 0.27	TF  = 307p	VTF = 9.956
++CJE = 26.5p	VJE = 0.7211	MJE = 0.3486	ITF = 0.56	XTF = 10
++RCO = 18	VO  = 5.0	GAMMA = 130n	QCO = 700f	QUASIMOD = 1
++TR  = 50n	XTB = 1.5	)
+
+.model KSA733 PNP (
++IS  = 29.9f	NF  = 1.012	BF  = 255	VAF = 57
++ISE = 20f	NE  = 1.65	IKF = 0.45
++RC  = 1.7	RE  = 10m	RB  = 50	RBM = 5.0	IRB = 120u
++ISC = 73f	NR  = 1.012	BR  = 5.5	VAR = 14	NC  = 1.3
++CJC = 11.9p	VJC = 0.3	MJC = 0.4	TF  = 533p	VTF = 10
++CJE = 23p	VJE = 0.9	MJE = 0.5	ITF = 0.13	XTF = 3.75
++TR  = 10n	XTB = 2.008	)
+
+.model KSC1845 NPN (
++IS  = 52.5f	NF  = 1.0	BF  = 408	VAF = 150
++ISE = 4f	NE  = 1.5	IKF = 0.8
++RC  = 0.28	RE  = 0.15	RB  = 40	RBM = 4.0	IRB = 250u
++ISC = 1.9p	NR  = 1.0	BR  = 15	VAR = 20	NC  = 1.3
++CJC = 4.8p	VJC = 0.6	MJC = 0.29	TF  = 149p	VTF = 4.0
++CJE = 26.5p	VJE = 0.73	MJE = 0.162
++RCO = 105	VO  = 2.2	GAMMA = 1.6u	QCO = 2p	QUASIMOD = 1
++EG  = 1.181	TR  = 10n	XTB = 1.728	)
+
+.model KSC1845NQ ako:KSC1845 (
++RCO = 0.0	IKF = 0.39
++CJE = 31p	TF  = 418p	ITF = 68m	XTF = 18.7	)
+
+.model KSA992 PNP (
++IS  = 48.3f	NF  = 1.0	BF  = 395	VAF = 65
++ISE = 0.5f	NE  = 1.5	IKF = 0.25
++RC  = 48m	RE  = 4.4m	RB  = 25	RBM = 2.5	IRB = 3.8m
++ISC = 1.8p	NR  = 1.0	BR  = 5.9	VAR = 12	NC  = 1.3
++CJC = 7p	VJC = 0.6	MJC = 0.32	TF  = 365p	VTF = 4.0
++CJE = 25p	VJE = 0.855	MJE = 0.4404	ITF = 0.75	XTF = 1.13k
++RCO = 55	VO  = 3.0	GAMMA = 490n	QCO = 300f	QUASIMOD = 1
++EG  = 1.16	TR  = 10n	XTB = 1.285	)
+
+.model LM394 NPN (
++IS  = 178f	NF  = 1.0	BF  = 778	VAF = 80
++ISE = 0.26f	NE  = 1.1	IKF = 100
++RC  = 20	RE  = 0.4	RB  = 40	RBM = 4.0	IRB = 2.14m
++ISC = 30f	NR  = 1.0	BR  = 1.8	VAR = 20	NC  = 1.1
++CJC = 31p	VJC = 0.55	MJC = 0.26	TF  = 50p	VTF = 4.0
++CJE = 45p	VJE = 0.7	MJE = 0.3	ITF = 20m	XTF = 10
++TR  = 5n	)
+
+.model MPS8099 NPN (
++IS  = 59.7f	NF  = 1.0	BF  = 164	VAF = 250
++ISE = 4p	NE  = 2.0	IKF = 38	NK  = 0.99
++RC  = 0.103	RE  = 0.257	RB  = 8.0	RBM = 0.8	IRB = 2.5m	
++ISC = 2.42p	NR  = 1.0	BR  = 65	VAR = 60	NC  = 1.3
++CJC = 6.2p	VJC = 0.3	MJC = 0.25	TF  = 605p	VTF = 1.5
++CJE = 25p	VJE = 1.1	MJE = 0.41	ITF = 100	XTF = 840k
++TR  = 1.53u	XTB = 1.5	)
+
+.model MPS8599  PNP (
++IS  = 65.6f	NF  = 1.0	BF  = 172	VAF = 74
++ISE = 20f	NE  = 1.48	IKF = 3.5	NK  = 0.99	IKR = 2.3
++RC  = 24.7m	RE  = 0.0	RB  = 12	RBM = 1.2	IRB = 3.52m
++ISC = 31p	NR  = 1.0	BR  = 10	VAR = 14	NC  = 1.65
++CJC = 16p	VJC = 0.25	MJC = 0.45	TF  = 615p	VTF = 22
++CJE = 29p	VJE = 0.83	MJE = 0.41	ITF = 20	XTF = 15k
++TR  = 10n	)
+
+.model MPSA06 NPN (
++IS  = 119f	NF  = 1.0	BF  = 159	VAF = 130
++ISE = 180f	NE  = 1.471	IKF = 9.0	NK  = 0.99
++RC  = 7.87m	RE  = 0.0	RB  = 20	RBM = 2.0	IRB = 385u
++ISC = 65p	NR  = 1.0	BR  = 23.5	VAR = 20	NC  = 1.6
++CJC = 17.6p	VJC = 0.484	MJC = 0.31	TF  = 580p	VTF = 7.538
++CJE = 60p	VJE = 0.75	MJE = 0.35	ITF = 25	XTF = 8.9k
++TR  = 10n	XTB = 2.7	)
+
+.model MPSA56 PNP (
++IS  = 23.3f	NF  = 0.95	BF  = 172.5	VAF = 80
++ISE = 15f	NE  = 1.475	IKF = 4.0	NK  = 0.99
++RC  = 24.68m	RE  = 0.0	RB  = 30	RBM = 3.0	IRB = 256u
++ISC = 48p	NR  = 0.95	BR  = 8.3	VAR = 12	NC  = 1.649
++CJC = 45p	VJC = 0.5	MJC = 0.44	TF  = 800p	VTF = 22.36
++CJE = 90p	VJE = 0.75	MJE = 0.43	ITF = 0.9385	XTF = 20.5
++TR  = 10n	XTB = 1.7	)
+
+.model MPSA18 NPN (
++IS  = 66.8f	NF  = 1.0	BF  = 833	VAF = 65
++ISE = 10f	NE  = 1.579	IKF = 0.2
++RC  = 1.0	RE  = 0.0	RB  = 80	RBM = 8.0	IRB = 20.3u
++ISC = 20p	NR  = 1.0	BR  = 12	VAR = 9.0	NC  = 1.6
++CJC = 4.9p	VJC = 0.75	MJC = 0.4	TF  = 240p	VTF = 6.0
++CJE = 17.5p	VJE = 1.5	MJE = 0.61	ITF = 10	XTF = 7.8k
++RCO = 14	VO  = 1.5	GAMMA = 500n	QCO = 1f	QUASIMOD = 1
++TR  = 800.3p	XTB = 1.5	)
+
+.model MPSA42 NPN (
++IS  = 52.1f	NF  = 1.03	BF  = 76	VAF = 300
++ISE = 130f	NE  = 1.5
++RC  = 0.411	RE  = 0.419	RB  = 30	RBM = 3.0	IRB = 2.6u
++ISC = 280p	NR  = 1.03	BR  = 28.5	VAR = 91	NC  = 1.7
++CJC = 14.1p	MJC = 0.3	VJC = 0.4	TF  = 1.04n	VTF = 10
++CJE = 68p	VJE = 0.3	MJE = 0.35
++RCO = 95	VO  = 2.0	GAMMA = 11u	QCO = 10p	QUASIMOD = 1
++XTB = 1.2	)
+
+.model MPSA92 PNP (
++IS  = 36.1f	NF  = 1.0	BF  = 102.5	VAF = 170
++ISE = 5f	NE  = 1.49
++RC  = 10m	RE  = 10m	RB  = 50	RBM = 5.0	IRB = 55u
++ISC = 202p	NR  = 1.0	BR  = 4.7	VAR = 25	NC  = 1.6
++CJC = 19.5p	VJC = 0.3	MJC = 0.6	TF  = 605p	VTF = 10
++CJE = 80p	VJE = 0.3	MJE = 0.27
++RCO = 80	VO  = 2.9	GAMMA = 1.8u	QCO = 1p	QUASIMOD = 1
++XTB = 1.0	)
+
+.model ZTX384 NPN (
++IS  = 32.5f	NF  = 0.99	BF  = 522	VAF = 115
++ISE = 34f	NE  = 1.46	IKF = 0.65
++RC  = 0.25	RE  = 0.6	RB  = 50	RBM = 5.0	IRB = 131u
++ISC = 2.3p	NR  = 0.99	BR  = 39	VAR = 10	NC  = 1.4
++CJC = 5.5p	VJC = 0.75	MJC = 0.3	TF  = 475p
++CJE = 21.5p	VJE = 0.75	MJE = 0.33	ITF = 0.1	XTF = 2.5
++RCO = 20	VO  = 1.0	GAMMA = 220n	QCO = 1p	QUASIMOD = 1
++TR  = 50.72n 	XTB = 1.5	)
+
+.model ZTX214 PNP (
++IS  = 26f	NF  = 0.98	BF  = 403	VAF = 33
++ISE = 0.5f	NE  = 1.4	IKF = 0.28	IKR = 7.2m
++RC  = 0.95	RE  = 0.4	RB  = 55	RBM = 5.5	IRB = 78.5u
++ISC = 10f	NR  = 0.98	BR  = 12	VAR = 8.0	NC  = 1.1
++CJC = 8p	VJC = 0.5	MJC = 0.38	TF  = 576p
++CJE = 18p	VJE = 0.65	MJE = 0.415	ITF = 0.2	XTF = 3.05
++TR  = 73.55n	XTB = 1.5	)
+
+.model ZTX653 NPN (
++IS  = 305f	NF  = 1.003	BF  = 172	VAF = 300
++ISE = 202f	NE  = 1.3642	IKF = 2.0
++RC  = 60m	RE  = 87.5m	RB  = 17	RBM = 1.7	IRB = 140u
++ISC = 33p	NR  = 1.003	BR  = 60	VAR = 38	NC  = 1.45
++CJC = 45.5p	VJC = 0.5774	MJC = 0.4534	TF  = 780p
++CJE = 278p	VJE = 0.75	MJE = 0.33
++TR  = 30n	XTB = 1.5	)
+
+.model ZTX753 PNP (
++IS  = 345f	NF  = 1.004	BF  = 169.5	VAF = 90
++ISE = 4.5f	NE  = 1.1	IKF = 5.0
++RC  = 70m	RE  = 80m	RB  = 15	RBM = 1.5	IRB = 157u
++ISC = 5.7p	NR  = 1.004	BR  = 35	VAR = 15	NC  = 1.3
++CJC = 80p	VJC = 0.768	MJC = 0.49	TF  = 975p
++CJE = 350p	VJE = 0.75	MJE = 0.33 
++TR  = 24n	XTB = 1.5	)
+
+* VAS/Driver -----------------------------------------------------------------
+
+.model 2SC1941 NPN (
++IS  = 1.609f	NF  = 0.9	BF  = 256	VAF = 300
++ISE = 42f	NE  = 1.5	IKF = 0.38
++RC  = 1.5	RE  = 0.1	RB  = 50	RBM = 5.0	IRB = 77u
++ISC = 17p	NR  = 0.9	BR  = 7.35	VAR = 50	NC  = 1.5
++CJC = 4.5p	VJC = 0.5	MJC = 0.22	TF  = 910p	VTF = 10
++CJE = 35p	VJE = 0.5	MJE = 0.3
++RCO = 85	VO  = 7.0	GAMMA = 1.5u	QCO = 10p	QUASIMOD = 1
++TR  = 10n	XTB = 1.5	)
+
+.model 2SC2910 NPN (
++IS  = 32f	NF  = 1.0	BF  = 242	VAF = 200
++ISE = 9.7p	NE  = 2.0	IKF = 1.0
++RC  = 1.5	RE  = 0.1	RB  = 35	RBM = 3.5	IRB = 335u
++ISC = 255p	NR  = 1.0	BR  = 8.0	VAR = 25	NC  = 1.8
++CJC = 3.8p	VJC = 0.6	MJC = 0.21	TF  = 680p	VTF = 10
++CJE = 28p	VJE = 0.6	MJE = 0.5
++RCO = 105	VO  = 6.0	GAMMA = 1u	QCO = 1p	QUASIMOD = 1
++TR  = 10n	XTB = 1.5	)
+
+.model 2SC3116 NPN (
++IS  = 193.2f	NF  = 1.0	BF  = 216	VAF = 400
++ISE = 385f	NE  = 1.5	IKF = 40	NK  = 0.99
++RC  = 1.5	RE  = 0.1	RB  = 15	RBM = 1.5	IRB = 620u
++ISC = 155p	NR  = 1.0	BR  = 35	VAR = 25	NC  = 1.6
++CJC = 21p	VJC = 0.6	MJC = 0.33	TF  = 830p	VTF = 5.0
++CJE = 290p	VJE = 0.5	MJE = 0.5	ITF = 100	XTF = 35k
++TR  = 10n	XTB = 1.5	)
+
+.model 2SA1248 PNP (
++IS  = 168.7f	NF  = 1.0	BF  = 193	VAF = 135
++ISE = 10f	NE  = 1.5	IKF = 7.0	NK  = 0.99
++RC  = 4.1	RE  = 50m	RB  = 20	RBM = 2.0	IRB = 620u
++ISC = 90p	NR  = 1.0	BR  = 6.6	VAR = 25	NC  = 1.5
++CJC = 28p	VJC = 0.6	MJC = 0.33	TF  = 940p
++CJE = 190p	VJE = 0.5	MJE = 0.5	ITF = 100	XTF = 20.5k
++TR  = 1n	XTB = 1.5	)
+
+.model 2SC3788 NPN (
++IS  = 0.763f	NF  = 0.9	BF  = 140.5	VAF = 600
++ISE = 550f	NE  = 2.0	IKF = 0.7	IKR = 30m
++RC  = 1.5	RE  = 0.1	RB  = 20	RBM = 2.0	IRB = 402u
++ISC = 3.32p	NR  = 0.9	BR  = 42	VAR = 45 	NC  = 1.35
++CJC = 5.4p	VJC = 0.25	MJC = 0.24	TF  = 430p	VTF = 10
++CJE = 47.5p	VJE = 0.5	MJE = 0.5
++RCO = 115	VO  = 7.0	GAMMA = 1.1u	QCO = 1p	QUASIMOD = 1
++EG  = 1.3	TR  = 10n	XTB = 2.5	)
+
+.model 2SD600 NPN (
++IS  = 157f	NF  = 1.0	BF  = 141	VAF = 500
++ISE = 76f	NE  = 1.3	IKF = 19	NK  = 0.99
++RC  = 1.4705	RE  = 90.9m	RB  = 10	RBM = 1.0	IRB = 760u
++ISC = 210p	NR  = 1.0	BR  = 11.2	VAR = 50	NC  = 1.7
++CJC = 93p	VJC = 0.25	MJC = 0.4	TF  = 650p	VTF = 10
++CJE = 250p	VJE = 0.5	MJE = 0.5	ITF = 0.3	XTF = 10
++XTB = 1.5	)
+
+.model 2SB631 PNP (
++IS  = 170.5f	NF  = 1.0	BF  = 146	VAF = 140
++ISE = 20f	NE  = 1.5	IKF = 12	NK  = 0.99
++RC  = 1.175	RE  = 0.1908	RB  = 10	RBM = 1.0	IRB = 485u
++ISC = 3.0p	NR  = 1.0	BR  = 7.4	VAR = 25	NC  = 1.5
++CJC = 125p	VJC = 0.25	MJC = 0.38	TF  = 770p	VTF = 10
++CJE = 300p	VJE = 0.5	MJE = 0.5	ITF = 0.3	XTF = 10
++XTB = 1.5	)
+
+.model BD139 NPN (
++IS  = 241f	NF  = 1.0	BF  = 181 	VAF = 450
++ISE = 4.5f	NE  = 1.2	IKF = 25
++RC  = 10m	RE  = 80m	RB  = 15	RBM = 1.5	IRB = 890u
++ISC = 80p	NR  = 1.0	BR  = 25.7	VAR = 75	NC  = 1.7
++CJC = 43p	VJC = 0.52	MJC = 0.44	TF  = 585p	VTF = 35
++CJE = 308p	VJE = 0.67	MJE = 0.32	ITF = 20	XTF = 10k
++EG  = 1.21	TR  = 10n	XTB = 0.9	)
+
+.model BD139S NPN (
++IS  = 118.5f	NF  = 1.0	BF  = 171 	VAF = 450
++ISE = 6.6f	NE  = 1.2	IKF = 40
++RC  = 10m	RE  = 80m	RB  = 10	RBM = 1.0	IRB = 250u
++ISC = 26p	NR  = 1.0	BR  = 11	VAR = 75	NC  = 1.5
++CJC = 43p	VJC = 0.52	MJC = 0.44	TF  = 585p	VTF = 35
++CJE = 308p	VJE = 0.67	MJE = 0.32	ITF = 20	XTF = 10k
++EG  = 1.21	TR  = 10n	XTB = 0.9	)
+
+.model BD140 PNP (
++IS  = 257f	NF  = 1.0	BF  = 200 	VAF = 135
++ISE = 190f	NE  = 1.5	IKF = 5.5
++RC  = 10m	RE  = 0.1	RB  = 15	RBM = 1.5	IRB = 580u
++ISC = 3.5p	NR  = 1.0	BR  = 14	VAR = 17	NC  = 1.4
++CJC = 95p	VJC = 0.6	MJC = 0.43	TF  = 320p	VTF = 35
++CJE = 290p 	VJE = 0.7	MJE = 0.4	ITF = 20	XTF = 10k
++EG  = 1.2	TR  = 100n	XTB = 1.5	)
+
+.model BD140S PNP (
++IS  = 135f	NF  = 1.0	BF  = 162.5 	VAF = 125
++ISE = 55f	NE  = 1.4	IKF = 1.5
++RC  = 10m	RE  = 0.1	RB  = 15	RBM = 1.5	IRB = 480u
++ISC = 8p	NR  = 1.0	BR  = 13.5	VAR = 17	NC  = 1.4
++CJC = 95p	VJC = 0.6	MJC = 0.43	TF  = 320p	VTF = 35
++CJE = 290p 	VJE = 0.7	MJE = 0.4	ITF = 20	XTF = 10k
++EG  = 1.2	TR  = 100n	XTB = 1.5	)
+
+.model KSA1142 PNP (                                
++IS  = 29.2f	NF  = 1.0	BF  = 127.5	VAF = 220
++ISE = 30f	NE  = 1.5
++RC  = 1.34	RE  = 1.6m	RB  = 30	RBM = 3.0	IRB = 605u
++ISC = 38p	NR  = 1.0	BR  = 9.1	VAR = 30	NC  = 1.5
++CJC = 16p	VJC = 0.524	MJC = 0.39	TF  = 420p
++CJE = 76p	VJE = 0.778	MJE = 0.43
++RCO = 45	VO  = 3.0	GAMMA = 600n	QCO = 1p	QUASIMOD = 1	
++EG  = 1.11	TR  = 10n	XTB = 2.182	)
+
+.model KSC2690 NPN (
++IS  = 412f	NF  = 1.0	BF  = 232	VAF = 580.75
++ISE = 365f	NE  = 1.5	IKF = 100	NK  = 0.99
++RC  = 1.471	RE  = 90.9m	RB  = 11	RBM = 1.1	IRB = 480u
++ISC = 70p	NR  = 1.0	BR  = 35	VAR = 50	NC  = 1.5
++CJC = 72p	VJC = 0.5	MJC = 0.44	TF  = 670p	VTF = 10
++CJE = 800p	VJE = 0.6696	MJE = 0.3296	ITF = 120	XTF = 24k
++EG  = 1.228	XCJC = 0.4955	XTB = 1.259	)
+
+.model KSA1220 PNP (
++IS  = 516f	NF  = 1.0	BF  = 239.5	VAF = 120
++ISE = 50f	NE  = 1.5	IKF = 100	NK  = 0.99
++RC  = 1.1748	RE  = 0.1908	RB  = 20	RBM = 2.0	IRB = 785u
++ISC = 40p	NR  = 1.0	BR  = 11	VAR = 11	NC  = 1.5
++CJC = 131p	VJC = 0.58	MJC = 0.51	TF  = 830p	VTF = 10
++CJE = 850p	VJE = 0.9575	MJE = 0.4694	ITF = 200	XTF = 47k
++EG  = 1.226	XCJC = 0.4955	XTB = 1.798	)
+
+.model KSC3503 NPN (
++IS  = 26.2f	NF  = 1.0	BF  = 86.5	VAF = 769
++ISE = 25f	NE  = 1.5
++RC  = 1.5	RE  = 0.1	RB  = 50	RBM = 0.5	IRB = 154u
++ISC = 203p	NR  = 1.0	BR  = 35	VAR = 50	NC  = 1.7
++CJC = 9.3p	VJC = 0.5	MJC = 0.34	TF  = 50p	VTF = 35
++CJE = 100p	VJE = 0.75	MJE = 0.33
++RCO = 180	VO  = 10	GAMMA = 9u	QCO = 1.5p	QUASIMOD = 1
++EG  = 1.15	TR  = 10n	XTB = 1.5	)
+
+.model KSA1381 PNP (
++IS  = 30.1f	NF  = 1.0	BF  = 124.3	VAF = 250
++ISE = 25f	NE  = 1.5
++RC  = 4.1	RE  = 50m	RB  = 30	RBM = 3.0	IRB = 566u
++ISC = 280p	NR  = 1.0	BR  = 5.3	VAR = 35	NC  = 1.7
++CJC = 11p	VJC = 0.5	MJC = 0.31	TF  = 310p	VTF = 35
++CJE = 93p	VJE = 0.75	MJE = 0.33	ITF = 7.0	XTF = 12k
++RCO = 100	VO  = 15	GAMMA = 2.7u	QCO = 300f 	QUASIMOD = 1
++EG  = 1.15	TR  = 1n	XTB = 0.9	)
+
+.model MJE243 NPN (
++IS  = 570f	NF  = 1.06	BF  = 118	VAF = 600
++ISE = 205f	NE  = 1.3	IKF = 2.0
++RC  = 0.2	RE  = 10m	RB  = 20	RBM = 2.0	IRB = 59u
++ISC = 65p	NR  = 1.06	BR  = 35	VAR = 50	NC  = 1.5
++CJC = 77p	VJC = 0.4	MJC = 0.3	TF  = 3.3n	VTF = 11
++CJE = 220p	VJE = 1.0	MJE = 0.4	ITF = 5.0	XTF = 7.0
++EG  = 1.05	FC  = 0.58	TR  = 1u	XTB = 1.2	XTI = 0.8 )
+
+.model MJE253 PNP (
++IS  = 239f	NF  = 1.0	BF  = 157.2	VAF = 180
++ISE = 80f	NE  = 1.5	IKF = 25
++RC  = 0.3	RE  = 10m	RB  = 15	RBM = 1.5	IRB = 665u
++ISC = 4.2p	NR  = 1.0	BR  = 43	VAR = 20	NC  = 1.3
++CJC = 45p	VJC = 0.35	MJC = 0.25	TF  = 3.3n	VTF = 10
++CJE = 158p	VJE = 1.0	MJE = 0.33	ITF = 5.0	XTF = 7.0
++EG  = 1.05	FC  = 0.55	TR  = 1u	XTB = 1.3	XTI = 10m )
+
+.model MJE340 NPN (
++IS  = 55.6f	NF  = 1.0	BF  = 165	VAF = 220
++ISE = 420f	NE  = 1.5	IKF = 0.5
++RC  = 2.0	RE  = 10m	RB  = 20	RBM = 2.0	IRB = 665u
++ISC = 15.3p	NR  = 1.0	BR  = 45	VAR = 30	NC  = 1.4
++CJC = 140p	VJC = 0.75	MJC = 0.33	TF  = 1.0n	VTF = 10
++CJE = 170p	VJE = 0.75	MJE = 0.33
++RCO = 115	VO  = 9.0	GAMMA = 1.9u	QCO = 15p	QUASIMOD = 1
++EG  = 1.11	TR  = 10n	XTB = 1.45	)
+
+.model MJE350 PNP (
++IS  = 9.26f	NF  = 1.0	BF  = 149	VAF = 200
++ISE = 1.7f	NE  = 1.5	IKF = 0.16
++RC  = 1.0	RE  = 10m	RB  = 35	RBM = 3.5	IRB = 662u
++ISC = 10.7p	NR  = 1.0	BR  = 1.9	VAR = 50	NC  = 1.4
++CJC = 120p	VJC = 0.55	MJC = 0.35	TF  = 1n
++CJE = 50p	VJE = 0.75	MJE = 0.35
++RCO = 200	VO  = 4.5	GAMMA = 1u	QCO = 10p	QUASIMOD = 1
++EG  = 1.11	TR  = 10n	XTB = 1.4	)
+
+.model TTC004B NPN (
++IS  = 368f	NF  = 1.0	BF  = 230.5	VAF = 500
++ISE = 115f	NE  = 1.5	IKF = 3.2	NK  = 0.99
++RC  = 70.9m	RE  = 0.115	RB  = 25	RBM = 2.5	IRB = 565u
++ISC = 510p	NR  = 1.0	BR  = 19	VAR = 30	NC  = 1.8
++CJC = 28.9p	VJC = 0.75	MJC = 0.33	TF  = 1.54n	VTF = 10
++CJE = 57.8p	VJE = 0.75	MJE = 0.33	ITF = 1.0	XTF = 1.0
++TR  = 10n	XTB = 1.17	)
+
+.model TTA004B PNP (
++IS  = 343f	NF  = 1.0	BF  = 204.5	VAF = 150
++ISE = 45f	NE  = 1.5	IKF = 3.5	NK  = 0.9
++RC  = 0.125	RE  = 50m	RB  = 25	RBM = 2.5	IRB = 385u
++ISC = 200p	NR  = 1.0	BR  = 11	VAR = 17	NC  = 1.75
++CJC = 40.9p	VJC = 0.75	MJC = 0.33	TF  = 1.52n	VTF = 10
++CJE = 81.8p	VJE = 0.75	MJE = 0.33	ITF = 1.0	XTF = 1.0
++TR  = 10n	XTB = 1.0	)
