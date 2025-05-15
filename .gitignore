@@ -2,3 +2,4 @@
 kicad-smd/fp-info-cache
 *.bak
 *.fft
+kicad-smd/power_supply/fp-info-cache
