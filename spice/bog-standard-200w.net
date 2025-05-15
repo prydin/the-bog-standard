@@ -1,0 +1,112 @@
+* C:\proj\the-bog-standard\spice\bog-standard-200w.asc
+R14 OUT FB 33k
+R12 FB N024 1k
+C4 N024 0 1; 220µ
+R4 N019 0 22k
+C1 N020 0 220p
+R1 N020 IN 1k
+C6 N026 N030 47p
+Q11 N003 N023 N026 0 BD139C
+R17 N003 N023 10k
+R18 N023 N026 840
+C15 OUT N022 100n
+R§E24 N022 0 10
+C7 N003 N026 10µ
+V5 SINE 0 SINE(0 {a} {f})
+R218 N036 N041 2k
+R223 N037 N036 2k
+C207 N036 0 159.2n
+C208 N041 N042 79.62n
+C209 N042 N037 79.62n
+R228 N042 0 1k
+M§Q15 B+ N008 N011 N011 IRFP240
+M§Q16 B- N034 N032 N032 IRFP9240
+R22 N008 N007 47
+R23 N034 N028 47
+D5 N017 OUT 1N4148
+D4 N017 N007 UMZ6_8EN
+D6 N025 OUT UMZ6_8EN
+D7 N025 N028 1N4148
+C3 N019 N018 1; 4.7µ
+Q13 B+ N003 N006 0 TTC004B
+Q14 B- N026 N033 0 TTA004B
+R21 N006 N033 680
+C10 N006 N033 220n
+C9 N026 0 47p
+C8 N003 0 47p
+B1 SQR 0 v=if(time>1e-6,{a}*sgn(v(sine)),0)
+B2 IN 0 V=if({square}>0,v(sqr),v(sine))
+Q12 N026 N035 N040 0 BD139C
+Q8 0 N030 N035 0 2N5550
+R20 N040 B- 33
+D3 0 N024 1N4148
+Q10 N003 N005 N002 0 BD140C
+Q9 N005 N002 B+ 0 2N5401
+R15 N005 N016 4.7k
+Q5 N031 N031 N039 0 2N5550
+Q3 N030 N031 N038 0 2N5550
+R7 N038 B- 100
+R11 N039 B- 100
+Q4 N014 N004 N001 0 2N5401
+R9 B+ N001 470
+Q1 N004 N001 B+ 0 2N5401
+R5 N004 N010 4.7k
+R10 N015 N014 100
+R8 N014 N013 100
+Q6 N031 NEG_IN N015 0 2N5401
+Q2 N030 N019 N013 0 2N5401
+R405 N019 N018 {dc_couple_res}
+R406 0 N024 {dc_couple_res}
+R115 NC_01 N043 6.8
+L3 N043 N044 1m
+C115 N044 0 500µ
+L104 N044 0 20m
+R122 N044 0 22
+V2 FB NEG_IN AC 1
+Q7 N030 N040 B- 0 2N5550
+R6 N010 0 4.7k
+R16 N016 0 4.7k
+R30 OUT 0 4
+C2 B+ N010 4.7µ
+C5 B+ N016 4.7µ
+D1 NEG_IN N019 1N4148
+D2 N019 NEG_IN 1N4148
+R33 N021 N020 {r_vol_hi}
+R404 N021 0 {r_vol_lo}
+R3 N021 N018 470
+R2 B+ N002 56
+R13 N035 B- 1k
+R19 N011 OUT 0.22
+R24 OUT N032 0.22
+M§Q17 B+ N009 N012 N012 IRFP240
+R27 N009 N007 0.22
+R25 N012 OUT 0.22
+M§Q18 B- N029 N027 N027 IRFP9240
+R26 N029 N028 47
+R28 OUT N027 0.22
+R29 N007 N006 47
+R31 N028 N033 47
+V1 B+ 0 56
+V3 0 B- 56
+.model D D
+.lib C:\Users\pontu\AppData\Local\LTspice\lib\cmp\standard.dio
+.model NPN NPN
+.model PNP PNP
+.lib C:\Users\pontu\AppData\Local\LTspice\lib\cmp\standard.bjt
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\Users\pontu\AppData\Local\LTspice\lib\cmp\standard.mos
+.param f=1k a=1.3 square=0 sim_time=100m delay=0 dc_coupled=0 r_pot=50k vol=1
+.param dc_couple_res=if({dc_coupled}>0,1p,10G)
+.param r_vol_hi=1m+(1-vol)*r_pot r_vol_lo=1m+vol*r_pot
+.tran 0 {sim_time+delay} {delay} 100n
+.four {f} 50 -1 v(out)
+.option plotwinsize=0 NoOpiter numdgt=15
+; .step param vol list  0.25 0.5 0.75 1
+* .ac dec 1000 1 10meg
+* .noise out in dec 1000 1 1meg
+* Notch filter for time domain distortion test
+* f - Input frequency\na - Input amplitude\nvol - Volume\nsquare - Set to non-zero for square wave input\nsim_time - Simulation time (not counting settling delay)\ndelay - Settling delay. Set to several seconds for accurate THD\ndc_coupled = Shorts high value capacitors to allow for quick THD checks
+.lib "Cabirio-BJTmodels.txt"
+.backanno
+.end
